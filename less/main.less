@@ -1,0 +1,61 @@
+.img-container {
+    position: relative;
+    .flex-style(row, center, center);
+    img {
+        width: 90%;
+    }
+    .text {
+        font-size: 5rem;
+        position: absolute;      
+        text-align: center;
+        top: 30%;
+        color: white;
+        width: 50%;
+    }
+    .contact{
+        .button-style(white, black);
+    }
+}
+
+.artists-container{
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 4.5%;
+    .flex-style(row, space-around, flex-start);
+    .artist:nth-child(1) {
+        width: 35%;
+        .flex-style(column, space-around, center);
+        img {
+            padding-bottom: 5%;
+            width: 100%;
+            border-radius: 5px;
+            margin: 2% 0;
+        }
+        .bio {
+            padding-top: 5%;
+            width: 100%;
+            margin: 2% 0 15%;
+        }
+        a {
+            font-size: 2rem;
+        }
+}
+.artist:nth-child(2) {
+    width: 50%;
+    .flex-style(column, space-between, center);
+    img {
+        padding-bottom: 5%;
+        width: 75%;
+        border-radius: 5px;
+        margin: 2% 0;
+    }
+    .bio {
+        padding-top: 5%;
+        width: 100%;
+        margin: 2% 0;
+    }
+    a {
+        font-size: 2rem;
+    }
+}
+}
