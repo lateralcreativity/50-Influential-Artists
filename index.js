@@ -257,20 +257,33 @@ function removeArtist(arr, index) {
 
 /* Task 5: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born the 20th century (1800-1900) */
 
-function get20s(/* Code here */){
+function get20s(data){
 
-    /* Code here */
-
+    let result = [];
+    // New array with final results
+    for(let i = 0; i < data.length; i++){
+      //Loop through given array
+      let converted = parseInt(data[i].years);
+      // This converts the first number of the string stored to the key 'years' into an integer
+      // Second number of years wont matter since we are checking for birth dates
+      if(converted >= 1800 && converted <= 1900){
+        //If converted string is between 1800 and 1900 add the name of the current index to the result array
+        result.push(data[i].name);
+      }
+    }
+    return result;
   }
-
+console.log(get20s(artists));
 /* Task 6: Create a function called lotsOfArt() that takes artists as an argument and returns an array with names of artists who painted more than 100 paintings */
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(artists){
 
-    /* Code here */
-
+    let filtered = artists.filter(x => x.paintings > 100);
+    // Returns a new array with elements that match paintings > 100
+    return filtered.map(x => x.name);
+    // Returns a new array with the names of the filtered objects
   }
-
+console.log(lotsOfArt(artists));
 
 /* Task 7: Create a function called `addArtist` that can accept an array of information and add it to the artists array. Then, Add a 21st artist to the array (you) with custom information! 👩‍🎨👨‍🎨
 
@@ -281,21 +294,47 @@ genre: Web Design,
 nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) "*/
 
-function addArtist(/* Code here */){
+let information = [{
+  'id': 21,
+  'name': 'Gabriel Delgado',
+  'years': '1994 - 4/17/2020',
+  'genre': 'Web Design',
+  'nationality': 'American',
+  'bio': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec ultrices dui sapien eget mi proin.'
+}]
+function addArtist(arr){
 
-    /* Code here */
+    for(let i = 0; i < arr.length; i++){
+      artists.push(arr[i]);
+    }
 
   }
-
+addArtist(information);
+console.log(artists[artists.length - 1]);
 
 /* Task 8: Create a function called `checkArtist` that accepts a string (name of an artist) and checks if that artist is in the dataset. */
 
-function checkArtist(/* Code here */){
+function checkArtist(artistName){
 
-    /* Code here */
-
+    let result = '';
+    // Storing string for artist not found
+    for(let i = 0; i < artists.length; i++){
+      // Looping through artists array
+      if(artists[i].name === artistName){
+        // If current index name matches input name return the ID of matching index
+        // We return so the loop exits if name is found
+        return `Artist found at id ${artists[i].id}`;
+      } else {
+        // If not found assign result string to artist not found
+        // We do not return here so the loop continues running
+        result = 'Artist not found';
+      }
+    }
+    return result;
   }
-
+console.log(checkArtist('Gabriel Delgado')); // ID 21
+console.log(checkArtist('Francisco Goya')); // ID 16
+console.log(checkArtist('Test')); // Not Found
 
 
 
