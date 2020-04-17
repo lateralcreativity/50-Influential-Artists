@@ -207,12 +207,22 @@ const artists = [
 
 (1) Name of the first artist in the array
 (2) Bio of the third artist in the array */
-
+console.log(artists[0].name);
+console.log(artists[2].bio);
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
-
-
+artists.splice(8, 1, {
+  "id": 8,
+  "name": "Vincent Van Gogh",
+  "years": "1853 – 1890",
+  "genre": "Post-Impressionism",
+  "nationality": "Dutch",
+  "bio": "Vincent Willem van Gogh (Dutch: [ˈvɪnsɛnt ˈʋɪləm vɑŋ ˈɣɔx] (listen); 30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art. In just over a decade he created about 2,100 artworks, including around 860 oil paintings, most of them in the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. However, he was not commercially successful, and his suicide at 37 followed years of mental illness and poverty.",
+  "wikipedia": "http://en.wikipedia.org/wiki/Vincent_van_Gogh",
+  "paintings": 877
+})
+console.log(artists[8].name);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -222,10 +232,10 @@ const artists = [
  * For example, if getArtistByIndex is invoked with the inventory and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(id, name) {
-    /* code here */
+function getArtistByIndex(arr, index) {
+    return `The artist at index ${index} is ${arr[index].name}`;
   }
-  
+  console.log(getArtistByIndex(artists, 0));
   /**
 
 
@@ -237,10 +247,11 @@ function getArtistByIndex(id, name) {
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset.
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+function removeArtist(arr, index) {
+    arr.splice(index, 1);
   }
-  
+  // removeArtist(artists, 0);
+  // console.log(artists[0].name);
   /**
 
 
